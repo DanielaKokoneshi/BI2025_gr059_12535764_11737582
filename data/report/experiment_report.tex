@@ -1,0 +1,142 @@
+\documentclass[sigconf]{acmart}
+
+\AtBeginDocument{ \providecommand\BibTeX{ Bib\TeX } }
+\setcopyright{acmlicensed}
+\copyrightyear{2025}
+\acmYear{2025}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+\acmConference[BI 2025]{Business Intelligence}{-}{-}
+
+\begin{document}
+
+\title{BI2025 Experiment Report - Group 059}
+%% ---Authors: Dynamically added ---
+
+          \author{Daniela Kokoneshi}
+          \authornote{Student A, Matr.Nr.: 12535764}
+          \affiliation{
+            \institution{TU Wien}
+            \country{Austria}
+          }
+          
+          \author{Keisi Cela}
+          \authornote{Student B, Matr.Nr.: 11737582}
+          \affiliation{
+            \institution{TU Wien}
+            \country{Austria}
+          }
+          
+
+\begin{abstract}
+  This report documents the machine learning experiment for Group 059, following the CRISP-DM process model.
+\end{abstract}
+
+\ccsdesc[500]{Computing methodologies~Machine learning}
+\keywords{CRISP-DM, Provenance, Knowledge Graph, Machine Learning}
+
+\maketitle
+
+%% --- 1. Business Understanding ---
+\section{Business Understanding}
+
+\subsection{Data Source and Scenario}
+
+
+\subsection{Business Objectives}
+
+
+%% --- 2. Data Understanding ---
+\section{Data Understanding}
+\textbf{Dataset Description:} The dataset contains U.S. colleges and universities derived from US News \& World Report.
+Each row represents one institution and the columns describe selectivity, resources,
+financial indicators and student outcomes such as graduation rate.
+
+The following features were identified in the dataset:
+
+\begin{table}[h]
+  \caption{Raw Data Features}
+  \label{tab:features}
+  \begin{tabular}{lp{0.2\linewidth}p{0.4\linewidth}}
+    \toprule
+    \textbf{Feature Name} & \textbf{Data Type} & \textbf{Description} \\
+    \midrule
+    Additional\_fees & double> & Auto-generated: column Additional\_fees from OpenML 538. \\
+    Average\_ACT\_score & double> & Auto-generated: column Average\_ACT\_score from OpenML 538. \\
+    Average\_Combined\_SAT\_score & double> & Auto-generated: column Average\_Combined\_SAT\_score from OpenML 538. \\
+    Average\_Math\_SAT\_score & double> & Auto-generated: column Average\_Math\_SAT\_score from OpenML 538. \\
+    Average\_Verbal\_SAT\_score & double> & Auto-generated: column Average\_Verbal\_SAT\_score from OpenML 538. \\
+    Board\_costs & double> & Auto-generated: column Board\_costs from OpenML 538. \\
+    Estimated\_book\_costs & double> & Auto-generated: column Estimated\_book\_costs from OpenML 538. \\
+    Estimated\_personal\_spending & double> & Auto-generated: column Estimated\_personal\_spending from OpenML 538. \\
+    First\_quartile-ACT & double> & Auto-generated: column First\_quartile-ACT from OpenML 538. \\
+    First\_quartile-Math\_SAT & double> & Auto-generated: column First\_quartile-Math\_SAT from OpenML 538. \\
+    First\_quartile-Verbal\_SAT & double> & Auto-generated: column First\_quartile-Verbal\_SAT from OpenML 538. \\
+    Graduation\_rate & double> & Auto-generated: column Graduation\_rate from OpenML 538. \\
+    In-state\_tuition & double> & Auto-generated: column In-state\_tuition from OpenML 538. \\
+    Instructional\_expenditure\_per\_student & double> & Auto-generated: column Instructional\_expenditure\_per\_student from OpenML 538. \\
+    Number\_of\_applicants\_accepted & double> & Auto-generated: column Number\_of\_applicants\_accepted from OpenML 538. \\
+    Number\_of\_applications\_received & double> & Auto-generated: column Number\_of\_applications\_received from OpenML 538. \\
+    Number\_of\_fulltime\_undergraduates & double> & Auto-generated: column Number\_of\_fulltime\_undergraduates from OpenML 538. \\
+    Number\_of\_new\_students\_enrolled & double> & Auto-generated: column Number\_of\_new\_students\_enrolled from OpenML 538. \\
+    Number\_of\_parttime\_undergraduates & double> & Auto-generated: column Number\_of\_parttime\_undergraduates from OpenML 538. \\
+    Out-of-state\_tuition & double> & Auto-generated: column Out-of-state\_tuition from OpenML 538. \\
+    Pct.\_new\_students\_from\_top\_10Perc\_of\_H.S.\_class & double> & Auto-generated: column Pct.\_new\_students\_from\_top\_10Perc\_of\_H.S.\_class from OpenML 538. \\
+    Pct.\_new\_students\_from\_top\_25Perc\_of\_H.S.\_class & double> & Auto-generated: column Pct.\_new\_students\_from\_top\_25Perc\_of\_H.S.\_class from OpenML 538. \\
+    Pct.\_of\_faculty\_with\_Ph.D.s & double> & Auto-generated: column Pct.\_of\_faculty\_with\_Ph.D.s from OpenML 538. \\
+    Pct.\_of\_faculty\_with\_terminal\_degree & double> & Auto-generated: column Pct.\_of\_faculty\_with\_terminal\_degree from OpenML 538. \\
+    Pct.alumni\_who\_donate & double> & Auto-generated: column Pct.alumni\_who\_donate from OpenML 538. \\
+    Public/private\_indicator & integer> & Auto-generated: column Public/private\_indicator from OpenML 538. \\
+    Room\_and\_board\_costs & double> & Auto-generated: column Room\_and\_board\_costs from OpenML 538. \\
+    Room\_costs & double> & Auto-generated: column Room\_costs from OpenML 538. \\
+    State & string> & Auto-generated: column State from OpenML 538. \\
+    Student/faculty\_ratio & double> & Auto-generated: column Student/faculty\_ratio from OpenML 538. \\
+    Third\_quartile-ACT & double> & Auto-generated: column Third\_quartile-ACT from OpenML 538. \\
+    Third\_quartile-Math\_SAT & double> & Auto-generated: column Third\_quartile-Math\_SAT from OpenML 538. \\
+    Third\_quartile-Verbal\_SAT & double> & Auto-generated: column Third\_quartile-Verbal\_SAT from OpenML 538. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%% --- 3. Data Preparation ---
+\section{Data Preparation}
+\subsection{Data Cleaning}
+Describe your Data preparation steps here and include respective graph data.
+
+
+%% --- 4. Modeling ---
+\section{Modeling}
+
+\subsection{Hyperparameter Configuration}
+The model was trained using the following hyperparameter settings:
+
+\begin{table}[h]
+  \caption{Hyperparameter Settings}
+  \label{tab:hyperparams}
+  \begin{tabular}{lp{0.4\linewidth}l}
+    \toprule
+    \textbf{Parameter} & \textbf{Description} & \textbf{Value} \\
+    \midrule
+    
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Training Run}
+A training run was executed with the following characteristics:
+\begin{itemize}
+    \item \textbf{Algorithm:} 
+    \item \textbf{Start Time:} 
+    \item \textbf{End Time:} 
+    \item \textbf{Result:}  = 
+\end{itemize}
+
+%% --- 5. Evaluation ---
+\section{Evaluation}
+
+%% --- 6. Deployment ---
+\section{Deployment}
+
+\section{Conclusion}
+
+\end{document}
