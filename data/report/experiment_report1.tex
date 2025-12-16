@@ -1,0 +1,232 @@
+\documentclass[sigconf]{acmart}
+
+\AtBeginDocument{ \providecommand\BibTeX{ Bib\TeX } }
+\setcopyright{acmlicensed}
+\copyrightyear{2025}
+\acmYear{2025}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+\acmConference[BI 2025]{Business Intelligence}{-}{-}
+
+\begin{document}
+
+\title{BI2025 Experiment Report - Group 059}
+%% ---Authors: Dynamically added ---
+
+          \author{Daniela Kokoneshi}
+          \authornote{Student A, Matr.Nr.: 12535764}
+          \affiliation{
+            \institution{TU Wien}
+            \country{Austria}
+          }
+          
+          \author{Keisi Cela}
+          \authornote{Student B, Matr.Nr.: 11737582}
+          \affiliation{
+            \institution{TU Wien}
+            \country{Austria}
+          }
+          
+
+\begin{abstract}
+  This report documents the machine learning experiment for Group 059, following the CRISP-DM process model.
+\end{abstract}
+
+\ccsdesc[500]{Computing methodologies~Machine learning}
+\keywords{CRISP-DM, Provenance, Knowledge Graph, Machine Learning}
+
+\maketitle
+
+%% --- 1. Business Understanding ---
+\section{Business Understanding}
+
+\subsection{Data Source and Scenario}
+The colloges\_usnews dataset used for this poject is gotten from OpenML.
+It is a real-world dataset, from the American Statistical Association's
+1995 Data Analysis Exposition,based on insitutional data published in U.S
+News and World Report`s Guide to America`s Best Colleges (1993-1994).
+It contains information for 1,302 U.S colleges and universities,
+including variables related to admission selectivity (SAT/ACT scores,
+application acceptance), institutional characterisitcs (public/private,
+tuition, spending), student composition,faculty qualification and outcomes
+such as graduation rate. In total the dataset has a total of 35 attributes
+with most of them being numeric, and some being categorical such as state,
+public/private. The dataset contains missing values, particularly in the
+test score variables making it a realistic analysis.
+
+A suitable business scenraio for this dataset would be a university
+administration seeking to understand what factors influence graduation rates.
+By applying data analytics processess to the dataset, the institution can
+identify patterns and understand what factors influence a higher graduation rate.
+This analysis can support strategic planning, rescource allocation and performance
+benchmarking.
+
+\subsection{Business Objectives}
+The main objective of this analysis is to define which of the variables
+have a higher impact on the graduation rate of students. By identifying
+these factors the institutions have the necessary information to improve
+students sucess. Other objectives include providing universities with
+benchmarks against similar institution, identifying what aspects would
+have the biggest turn on investments and understaning how admission selectivity
+or student preparedness relate to graduation outcomes.
+
+All these objectives support organizations in making informed strategic decisions.
+\subsection{Business Success Criteria}
+For this project to be called successful, it should produce  precise
+ and easily interpretable insights regarding the key factors that influence
+ the graduation rate as well as a model that accuratly predicts
+the graduation rate of an institution based on the provided features. Another
+measure of sucess for this analysis would be that the derived recommendations
+are actionable, such as identifying which variables universities should
+influence to improve outcomes.
+
+Additionally, the results should be presented in a way  that universities
+can easily use the results for benchmarking, this way they can easily
+compare their performance against other educational institutions.
+\subsection{Data Mining Goals}
+The main data mining goal is to build a predictive model that estimates
+an institution`s graduation rate based on the available institutional,
+financial and student-related variables in the dataset. The model should
+provide accurate predictions, as well as highlight which features
+contribute most strongly to higher or lower graduation rates. Another
+goal is to perform exploratory analysis to better understand the relationshipps
+between variables such as tuition, selectivity, spending per student,
+or faculty resources and the graduation rate.This supports the business
+objective of identifying concrete levers that universities can influence
+ to improve student successs.
+\subsection{Data Mining Success Criteria}
+From a data mining perspective, the project is considered successful if
+we can train a regression model that generalizes well and explains an important
+ part of the variance in graduation rates. We are trying to have a model that
+ achieves a high coefficient of determination and a low prediction error
+ when testing via cross-validation.In addition, the learned model and derived
+ feature importance measures should be interpretable for non-technical stakeholders.
+ Key factors influencing graduation rate should be distinctly identifiable
+ (similar across different validation splits), so that they can be translated
+ into recommendations and benchmarking indicators for universities.
+\subsection{AI Risk Aspects}
+This project uses institutional-level, historical data about colleges and
+universities. While the dataset does not contain personal student identifiers,
+there are still some AI-related risks to consider. First, the data may reflect
+existing structural inequalities (between public and private institutions or
+between different regions). A model trained on such data could unintentionally
+reinforce these patterns if its predictions are used for funding decisions,
+ rankings or policy making without careful interpretation. Second, there is
+ a risk of over-interpreting correlations as causal effects and using the
+ model as a black-box decision tool rather than as analytic support. To handle
+  these risks, the focus of the project is on transparency and interpretability
+  (using explainable models and feature importance analysis), precisely
+  communicating the limitations of the data and the model, and treating the
+  results as decision-support for experts rather than automatic decision-making.
+
+%% --- 2. Data Understanding ---
+\section{Data Understanding}
+
+\subsection{Dataset Description}
+\textbf{Dataset Description:} {du_description}
+
+This dataset includes a variety of institutional, financial, and student outcome variables. 
+It was obtained from OpenML and contains all attributes present in the original ARFF file.
+
+\subsection{Raw Data Features}
+
+The following features were identified and documented in the knowledge graph:
+
+\begin{table}[h]
+  \caption{Raw Data Features}
+  \label{tab:features}
+  \begin{tabular}{lp{0.2\linewidth}p{0.4\linewidth}}
+    \toprule
+    \textbf{Feature Name} & \textbf{Data Type} & \textbf{Description} \\
+    \midrule
+    {du_table_rows}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Descriptive Statistics}
+The descriptive statistics for all attributes were computed during the Data Understanding phase.  
+Summary from the knowledge graph:
+
+\begin{quote}
+{du_stats_comment}
+\end{quote}
+
+\subsection{Data Quality Assessment}
+A systematic evaluation of data quality was conducted by checking for missing values and investigating outlier distributions.
+
+\subsubsection*{Missing Values}
+\begin{quote}
+{du_missing_comment}
+\end{quote}
+
+\subsubsection*{Outliers (IQR Method)}
+\begin{quote}
+{du_outliers_comment}
+\end{quote}
+
+\subsection{Visual Exploration}
+Simple visual analytics were generated to understand the distribution of the target variable and its relationships with selected numeric features.  
+Summary from the visual exploration activity:
+
+\begin{quote}
+{du_visual_comment}
+\end{quote}
+
+\subsection{Ethical and Sensitive Aspects (2e)}
+\begin{quote}
+{du_ethics_comment}
+\end{quote}
+
+\subsection{Risks and Open Questions (2f)}
+\begin{quote}
+{du_risks_comment}
+\end{quote}
+
+\subsection{Planned Data Preparation Actions (2g)}
+\begin{quote}
+{du_prep_comment}
+\end{quote}
+
+%% --- 3. Data Preparation ---
+\section{Data Preparation}
+\subsection{Data Cleaning}
+Describe your Data preparation steps here and include respective graph data.
+
+
+%% --- 4. Modeling ---
+\section{Modeling}
+
+\subsection{Hyperparameter Configuration}
+The model was trained using the following hyperparameter settings:
+
+\begin{table}[h]
+  \caption{Hyperparameter Settings}
+  \label{tab:hyperparams}
+  \begin{tabular}{lp{0.4\linewidth}l}
+    \toprule
+    \textbf{Parameter} & \textbf{Description} & \textbf{Value} \\
+    \midrule
+    
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Training Run}
+A training run was executed with the following characteristics:
+\begin{itemize}
+    \item \textbf{Algorithm:} 
+    \item \textbf{Start Time:} 
+    \item \textbf{End Time:} 
+    \item \textbf{Result:}  = 
+\end{itemize}
+
+%% --- 5. Evaluation ---
+\section{Evaluation}
+
+%% --- 6. Deployment ---
+\section{Deployment}
+
+\section{Conclusion}
+
+\end{document}
